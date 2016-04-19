@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Scott Edwards</title>
+
+  {% load staticfiles %}
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'mysite/css/agency.css' %}">
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body id="page-top" class="index">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand page-scroll" href="#page-top">SCOTT EDWARDS</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#services">Services</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#portfolio">Blog</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#about">About</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#contact">Contact</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#resources">Resources</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-heading">OPERATIONS MANAGEMENT</div>
+      <div class="intro-lead-in">and small scale IT solutions</div>
+      <div class="intro-lead-in-sub">Greenville, SC</div>
+      <a href="#services" class="page-scroll btn btn-xl">Learn More</a>
+    </div>
+  </div>
+</header>
+
+<!-- Services Section -->
+<section id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Services</h2>
+      </div>
+    </div>
+
+    <div class="row text-center">
+
+      {% if blog_posts %}
+      {% for post in blog_posts %}
+        {% for category in post.categories.all %}
+        {% if category.title == "Services" %}
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa {{ post.service_icon }} fa-stack-1x fa-inverse"></i>
+            </span>
+            <h4 class="service-heading">{{ post.title }}</h4>
+            <p class="text-muted">{{ post.content|striptags }}</p>
+          </div>
+        {% endif %}
+        {% endfor %}
+      {% endfor %}
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Blog Grid Section -->
+<section id="portfolio" class="bg-light-gray">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Blog</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      {% if blog_posts %}
+      {% for post in blog_posts %}
+        {% for category in post.categories.all %}
+        {% if category.title == "Blog" %}
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a href="#portfolioModal{{ post.id }}" class="portfolio-link" data-toggle="modal">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fa fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img src="{{ MEDIA_URL }}{{ post.featured_image }}" class="img-responsive" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>{{ post.title }}</h4>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      {% endfor %}
+      {% else %}
+        <p>No content available</p>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Portfolio Modals -->
+{% if blog_posts %}
+  {% for post in blog_posts %}
+    {% for category in post.categories.all %}
+    {% if category.title == "Blog" %}
+    <div class="portfolio-modal modal fade" id="portfolioModal{{ post.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <h2>{{ post.title }}</h2>
+                  {{ post.content|safe }}
+                <ul class="list-inline">
+                  <li>Date: {{ post.publish_date }}</li>
+                </ul>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
+
+<!-- About Section -->
+{% if blog_posts %}
+  {% for post in blog_posts %}
+    {% for category in post.categories.all %}
+    {% if category.title == "About" %}
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 text-xs-center col-md-8 col-md-offset-4 text-md-left">
+            <h2 class="section-heading">About</h2>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="team-member">
+              <img src="{{ MEDIA_URL }}{{ post.featured_image }}" class="img-responsive img-circle" alt="">
+              <h4>Scott Edwards</h4>
+              <p class="text-muted">Operations Consultant</p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://www.linkedin.com/in/scottedwards6"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/se42"><i class="fa fa-github"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-0 multi-p-post">
+            {{ post.content|safe }}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
+
+	<!-- Contact Section -->
+	<section id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">Contact Me</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<form name="sentMessage" id="contactForm" novalidate>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+									<p class="help-block text-danger"></p>
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+									<p class="help-block text-danger"></p>
+								</div>
+								<div class="form-group">
+									<input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+									<p class="help-block text-danger"></p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+									<p class="help-block text-danger"></p>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+							<div class="col-lg-12 text-center">
+								<div id="success"></div>
+								<button type="submit" class="btn btn-xl">Send Message</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Resources Section -->
+	<section id="resources" class="bg-light-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-10 col-md-8 col-xs-offset-1 col-md-offset-2 text-center">
+					<h2 class="section-heading">Resources</h2>
+					<h3 class="section-subheading text-muted">Some of my favorite open-source projects and resources:</h3>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3 col-sm-6 text-center">
+					<a href="https://www.python.org/" class="resource">Python</a>
+				</div>
+				<div class="col-md-3 col-sm-6 text-center">
+					<a href="https://www.djangoproject.com/" class="resource">Django</a>
+				</div>
+				<div class="col-md-3 col-sm-6 text-center">
+					<a href="http://getbootstrap.com/" class="resource">Bootstrap</a>
+				</div>
+				<div class="col-md-3 col-sm-6 text-center">
+					<a href="http://startbootstrap.com/" class="resource">Start Bootstrap</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<span class="copyright">Copyright &copy; Scott Edwards 2016</span>
+				</div>
+				<div class="col-md-6">
+					<span class="copyright">Based on <a href="http://startbootstrap.com/template-overviews/agency/">Agency</a> template by <a href="http://startbootstrap.com/">Start Bootstrap</a></span>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+
+
+
+
+
+
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!-- Plugin JavaScript -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="{% static 'mysite/js/classie.js' %}"></script>
+  <script src="{% static 'mysite/js/cbpAnimatedHeader.js' %}"></script>
+
+<!-- Contact Form JavaScript -->
+  <script src="{% static 'mysite/js/jqBootstrapValidation.js' %}"></script>
+  <script src="{% static 'mysite/js/contact_me.js' %}"></script>
+
+<!-- Custom Theme JavaScript -->
+  <script src="{% static 'mysite/js/agency.js' %}"></script>
+
+</body>
+
+</html>
