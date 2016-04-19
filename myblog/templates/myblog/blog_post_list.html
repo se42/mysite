@@ -229,11 +229,11 @@
       <!-- Working Knowledge -->
       <div class="col-sm-6">
       <h4>WORKING KNOWLEDGE</h4>
-      <ul class="col-md-3 col-sm-6 list-group">
+      <ul class="col-md-3 col-sm-6 list-inline center-block text-center">
       {% for post in blog_posts %}
         {% for category in post.categories.all %}
         {% if category.title == "Tools-Working" %}
-          <li class="list-group-item"><a href="{{ post.content|striptags }}" class="resource">{{ post.title }}</a></li>
+          <li><a href="{{ post.content|striptags }}" class="resource">{{ post.title }}</a></li>
         {% endif %}
         {% endfor %}
       {% endfor %}
@@ -243,7 +243,7 @@
       <!-- Basic Understanding -->
       <div class="col-sm-6">
       <h4>BASIC UNDERSTANDING</h4>
-      <ul class="col-md-3 col-sm-6 list-group">
+      <ul class="col-md-3 col-sm-6 list-inline center-block text-center">
       {% for post in blog_posts %}
         {% for category in post.categories.all %}
         {% if category.title == "Tools-Basic" %}
