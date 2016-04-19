@@ -233,7 +233,7 @@ fieldset[disabled] .btn-xl.active {
 
 @media (min-width:768px) {
 	.navbar-default {
-		background-color: transparent;
+		background-color: #222;
 		padding: 25px 0;
 		-webkit-transition: padding .3s;
 		-moz-transition: padding .3s;
@@ -360,19 +360,19 @@ section h3.section-subheading {
 	text-transform: none
 }
 
-#portfolio .portfolio-item {
+#blog .portfolio-item {
 	margin: 0 0 15px;
 	right: 0
 }
 
-#portfolio .portfolio-item .portfolio-link {
+#blog .portfolio-item .portfolio-link {
 	display: block;
 	position: relative;
 	max-width: 400px;
 	margin: 0 auto
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover {
+#blog .portfolio-item .portfolio-link .portfolio-hover {
 	background: rgba(254, 209, 54, .9);
 	position: absolute;
 	width: 100%;
@@ -383,11 +383,11 @@ section h3.section-subheading {
 	-moz-transition: all ease .5s
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
+#blog .portfolio-item .portfolio-link .portfolio-hover:hover {
 	opacity: 1
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+#blog .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
 	position: absolute;
 	width: 100%;
 	height: 20px;
@@ -398,16 +398,16 @@ section h3.section-subheading {
 	color: #fff
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
+#blog .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
 	margin-top: -12px
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
+#blog .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
+#blog .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
 	margin: 0
 }
 
-#portfolio .portfolio-item .portfolio-caption {
+#blog .portfolio-item .portfolio-caption {
 	max-width: 400px;
 	margin: 0 auto;
 	background-color: #fff;
@@ -415,24 +415,24 @@ section h3.section-subheading {
 	padding: 25px
 }
 
-#portfolio .portfolio-item .portfolio-caption h4 {
+#blog .portfolio-item .portfolio-caption h4 {
 	text-transform: none;
 	margin: 0
 }
 
-#portfolio .portfolio-item .portfolio-caption p {
+#blog .portfolio-item .portfolio-caption p {
 	font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-style: italic;
 	font-size: 16px;
 	margin: 0
 }
 
-#portfolio * {
+#blog * {
 	z-index: 2
 }
 
 @media (min-width:767px) {
-	#portfolio .portfolio-item {
+	#blog .portfolio-item {
 		margin: 0 0 30px
 	}
 }
