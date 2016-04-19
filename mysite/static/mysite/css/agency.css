@@ -62,7 +62,7 @@ h6 {
 }
 
 .bg-light-gray {
-	background-color: #f5f5f5;
+	background-color: #dcdcdc;
 }
 
 .bg-darkest-gray {
@@ -363,6 +363,7 @@ section h3.section-subheading {
 #blog .portfolio-item {
 	margin: 0 0 15px;
 	right: 0
+	border: 1px solid black;
 }
 
 #blog .portfolio-item .portfolio-link {
