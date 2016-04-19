@@ -222,14 +222,14 @@
       </div>
     </div>
 
-    <div class="row center-block">
+    <div class="row text-center">
       <!-- Tools panel -->
 
       {% if blog_posts %}
       <!-- Working Knowledge -->
       <div class="col-sm-6">
       <h4>WORKING KNOWLEDGE</h4>
-        <ul class="col-md-3 col-sm-6 list-group text-center">
+        <ul class="col-md-3 col-sm-6 list-group">
         {% for post in blog_posts %}
           {% for category in post.categories.all %}
           {% if category.title == "Tools-Working" %}
@@ -243,7 +243,7 @@
       <!-- Basic Understanding -->
       <div class="col-sm-6">
       <h4>BASIC UNDERSTANDING</h4>
-        <ul class="col-md-3 col-sm-6 list-group text-center">
+        <ul class="col-md-3 col-sm-6 list-group">
         {% for post in blog_posts %}
           {% for category in post.categories.all %}
           {% if category.title == "Tools-Basic" %}
