@@ -5,6 +5,6 @@ register_setting(
     label="Blog posts per page",
     description="The number of blog posts to show per page.",
     editable=True,
-    default=12,
+    default=50,
 )
 
