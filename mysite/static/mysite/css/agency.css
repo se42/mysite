@@ -39,13 +39,6 @@ a.active {
 	color: #fec503
 }
 
-a.resource {
-	color: gray;
-	font-size: 25px;
-	text-transform: uppercase;
-	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 h1,
 h2,
 h3,
@@ -931,4 +924,19 @@ body {
 	font-size: x-large;
 	color: #fed136;
 }
+
+
+.resources div {
+	align-items: center;
+}
+
+.resources ul li a {
+	color: gray;
+	font-size: 25px;
+	text-transform: uppercase;
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+
 
