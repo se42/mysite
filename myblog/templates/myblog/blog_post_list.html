@@ -54,7 +54,7 @@
           <a class="page-scroll" href="#skills">Skills</a>
         </li>
         <li>
-          <a class="page-scroll" href="#portfolio">Blog</a>
+          <a class="page-scroll" href="#blog">Blog</a>
         </li>
         <li>
           <a class="page-scroll" href="#tools">Tools</a>
@@ -139,7 +139,7 @@
 
 
 <!-- Blog Grid Section -->
-<section id="portfolio" class="bg-light-gray">
+<section id="blog" class="bg-light-gray">
   <div class="container">
 
     <div class="row">
@@ -154,7 +154,7 @@
         {% for category in post.categories.all %}
         {% if category.title == "Blog" %}
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a href="#portfolioModal{{ post.id }}" class="portfolio-link" data-toggle="modal">
+          <a href="#blogModal{{ post.id }}" class="portfolio-link" data-toggle="modal">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fa fa-plus fa-3x"></i>
@@ -183,7 +183,7 @@
   {% for post in blog_posts %}
     {% for category in post.categories.all %}
     {% if category.title == "Blog" %}
-    <div class="portfolio-modal modal fade" id="portfolioModal{{ post.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="blogModal{{ post.id }}" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
           <div class="lr">
