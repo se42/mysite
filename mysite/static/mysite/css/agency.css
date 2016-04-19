@@ -933,6 +933,8 @@ a.resource {
 	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-
+li.tools-list {
+	list-style-type: none;
+}
 
 
