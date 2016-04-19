@@ -926,7 +926,6 @@ body {
 }
 
 
-
 a.resource {
 	color: gray;
 	font-size: 25px;
@@ -934,6 +933,10 @@ a.resource {
 	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+ul.tools-list {
+	max-width: 350px;
+	margin: 0 auto;
+}
 
 
 
