@@ -229,7 +229,7 @@
           {% for category in post.categories.all %}
           {% if category.title == "Tools" %}
           <div class="col-md-3 col-sm-6 text-center">
-            <a href="{{ post.content|striptags }}">{{ post.title }}</a>
+            <a href="{{ post.content|striptags }}" class="resource">{{ post.title }}</a>
           </div>
           {% endif %}
           {% endfor %}
