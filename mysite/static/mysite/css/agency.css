@@ -926,11 +926,8 @@ body {
 }
 
 
-.resources div {
-	align-items: center;
-}
 
-.resources ul li a {
+a.resource {
 	color: gray;
 	font-size: 25px;
 	text-transform: uppercase;
