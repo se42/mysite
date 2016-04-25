@@ -236,34 +236,15 @@
       <!-- Tools panel -->
 
       {% if blog_posts %}
-      <!-- Working Knowledge -->
-      <div class="col-sm-6">
-      <h4>WORKING KNOWLEDGE</h4>
-      <ul class="list-group center-block text-center">
-      {% for post in blog_posts %}
-        {% for category in post.categories.all %}
-        {% if category.title == "Tools-Working" %}
-          <li class="tools-list"><a href="{{ post.content|striptags }}" class="resource">{{ post.title }}</a></li>
-        {% endif %}
+        {% for post in blog_posts %}
+          {% for category in post.categories.all %}
+            {% if category.title == "Tools" %}
+              <div class="col-sm-6 col-md-4">
+                <a href="{{ post.content|striptags }}" class="resource">{{ post.title }}</a>
+              </div>
+            {% endif %}
+          {% endfor %}
         {% endfor %}
-      {% endfor %}
-      </ul>
-      </div>
-
-      <!-- Basic Understanding -->
-      <div class="col-sm-6">
-      <h4>BASIC UNDERSTANDING</h4>
-      <ul class="list-group center-block text-center">
-      {% for post in blog_posts %}
-        {% for category in post.categories.all %}
-        {% if category.title == "Tools-Basic" %}
-          <li class="tools-list"><a href="{{ post.content|striptags }}" class="resource">{{ post.title }}</a></li>
-        {% endif %}
-        {% endfor %}
-      {% endfor %}
-      </ul>
-      </div>
-
       {% endif %}
 
     </div>
